@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .order-card {
+            border: 1px solid #dee2e6;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .order-card .card-header {
+            background-color: #f8f9fa;
+            font-weight: bold;
+        }
+        .order-card .card-body {
+            padding: 20px;
+        }
+        .order-card .card-footer {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Order Management System</h1>
+
+        <!-- Form for adding items -->
+        <form method="post" action="{{ url_for('add_item') }}">
+            <div class="form-group">
+                <label for="item_name">Item Name:</label>
+                <input type="text" class="form-control" id="item_name" name="item_name" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Item</button>
+        </form>
+
+        <!-- Display existing orders -->
+        {% for order in orders %}
+            <div class="card order-card">
+                <div class="card-header">
+                    Order #{{ order.id }}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Item: {{ order.item_name }}</h5>
+                    <p class="card-text">Date: {{ order.date.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+                    {% if order.order_received %}
+                        <p class="text-success">Order Received: Yes</p>
+                    {% else %}
+                        <p class="text-warning">Order Received: No</p>
+                    {% endif %}
+                </div>
+                <div class="card-footer">
+                    <a href="{{ url_for('checkout', order_id=order.id) }}" class="btn btn-primary">Checkout</a>
+                    <a href="{{ url_for('scanner', order_id=order.id) }}" class="btn btn-info">Scan QR</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
