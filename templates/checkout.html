@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        .order-card {
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+        }
+        .qr-code {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .btn-back {
+            margin-top: 20px;
+        }
+        .btn-download {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Checkout</h1>
+
+        <div class="card order-card">
+            <h5 class="card-title">Item: {{ order.item_name }}</h5>
+            <p class="card-text">Date: {{ order.date.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+            {% if order.order_received %}
+                <p class="text-success">Order Received: Yes</p>
+            {% else %}
+                <p class="text-warning">Order Received: No</p>
+            {% endif %}
+           <img src="{{ url_for('static', filename='qrcodes/' + order.id|string + '.png') }}" alt="QR Code" class="qr-code">
+            <a href="{{ url_for('index') }}" class="btn btn-primary btn-back">Back to Orders</a>
+            <a href="{{ url_for('download_qr', order_id=order.id) }}" class="btn btn-success btn-download">Download QR Code</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
