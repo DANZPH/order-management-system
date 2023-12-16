@@ -40,7 +40,8 @@ Run the application:
 python app.py
 ```
 Open your web browser and visit http://127.0.0.1:5000.
-Or portforwarding
+for portforwarding I recommend ngrok
+Visit the official [Ngrok](https://ngrok.com/) website for more information.
 
 ## Libraries and Technologies Used
 
