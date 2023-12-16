@@ -24,7 +24,7 @@ The Order Management System with QR Code Integration is a web application design
 1. **Clone the repository:**
 
 ```bash
-   git clone https://github.com/yourusername/order-management-system.git
+git clone https://github.com/yourusername/order-management-system.git
 ```
 2. Navigate to the project directory:
 ```bash
