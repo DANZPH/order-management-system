@@ -53,6 +53,23 @@ Visit the official [Ngrok](https://ngrok.com/) website for more information.
 
 - **QuaggaJS:** A versatile JavaScript library designed for decoding QR codes from live camera streams, enabling seamless QR code scanning in web applications.
 
+## Structure
+/OrderManagementSystem
+ ├── app.py
+ ├── models.py
+ ├── scanner.py
+ ├── templates/
+ │   ├── add_item.html
+ │   ├── checkout.html
+ │   ├── index.html
+ │   └── scanner.html
+ ├── static/
+ │   ├── qrcodes/
+ │   └── styles.css
+ ├── data/
+ ├── README.md
+ └── requirements.txt
+
 ## Contributing
 
 Contributions are highly encouraged! Whether you have suggestions, bug reports, or new features to propose, please feel free to submit a pull request. Your input is invaluable in improving the functionality and user experience of the Order Management System.
