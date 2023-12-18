@@ -52,24 +52,24 @@ Visit the official [Ngrok](https://ngrok.com/) website for more information.
 - **qrcode:** A Python library that facilitates the generation of QR codes, providing a quick and efficient way to encode information into QR code format.
 
 - **QuaggaJS:** A versatile JavaScript library designed for decoding QR codes from live camera streams, enabling seamless QR code scanning in web applications.
-
-## Structure
+##  Structure
+```
 /OrderManagementSystem
- ├── app.py
- ├── models.py
- ├── scanner.py
- ├── templates/
- │   ├── add_item.html
- │   ├── checkout.html
- │   ├── index.html
- │   └── scanner.html
- ├── static/
- │   ├── qrcodes/
- │   └── styles.css
- ├── data/
- ├── README.md
- └── requirements.txt
-
+├── instance/
+│ ├── order.db
+├── static/
+│ ├── qrcodes/
+├── templates/
+│ ├── add_item.html
+│ ├── checkout.html
+│ ├── index.html
+│ └── scanner.html
+├── uploads/
+│ ├── qrcodes/
+├── app.py
+├── README.md
+└── requirements.txt
+```
 ## Contributing
 
 Contributions are highly encouraged! Whether you have suggestions, bug reports, or new features to propose, please feel free to submit a pull request. Your input is invaluable in improving the functionality and user experience of the Order Management System.
